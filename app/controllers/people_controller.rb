@@ -26,7 +26,7 @@ class PeopleController < ApplicationController
     else
       flash.now[:error] = "Sorry, there was a problem submitting your info. Please email your submission to banthisthecampaign@gmail.com"
     end
-    render 'new'
+    render :new
   end
   
   def update

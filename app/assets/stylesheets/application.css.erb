@@ -92,6 +92,37 @@ button:hover
   width: 50%;
 }
 
+.splash-page
+{
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+}
+
+.splash-page:before,
+.splash-page:after
+{
+  content: '';
+  background-color: rgba(255, 255, 255, .75);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+
+.splash-page:after
+{
+  z-index: 11;
+  background-image: url(<%= asset_path 'logo.png' %>);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  cursor: pointer;
+}
+
 .logo
 {
   margin: -15px auto;

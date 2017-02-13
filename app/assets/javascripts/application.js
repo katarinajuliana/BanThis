@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+  
+$(document).on('turbolinks:load', function(e) {
+  $('.splash-page').on('click', function(e) {
+    e.preventDefault();
+    $('.splash-page').removeClass('splash-page').off('click');
+  });
+});
