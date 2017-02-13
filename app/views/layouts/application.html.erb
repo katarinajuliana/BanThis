@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BanThis</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Lora:400,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="logo">
+  <a href="/"></a>
+</div>
+
+<ol class="navigation">
+  <%= nav_link('Project', root_path) %>
+  <%= nav_link('About Us', about_path) %>
+  <%= nav_link('The Team', team_path) %>
+  <%= nav_link('Submit Your Story', new_person_path) %>
+  <%= nav_link('Contact Us', contact_path) %>
+</ol>
+<select class="navigation">
+  <%= nav_option('Project', root_path) %>
+  <%= nav_option('About Us', about_path) %>
+  <%= nav_option('The Team', team_path) %>
+  <%= nav_option('Submit Your Story', new_person_path) %>
+  <%= nav_option('Contact Us', contact_path) %>
+</select>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<div class="content">
+  <h2><%= @person.name %> // <%= @person.trajectory %></h2>
+  <div class="buttons">
+    <button id="edit-person">Edit</button> 
+    <% if !@person.published %>
+      <%= button_to "Publish", person_publish_path(@person), method: :put %>
+    <% end %>
+    <%= button_to "Delete", { action: "destroy", id: @person.id }, method: :delete %>
+    <div>
+      <p class="bold">
+        <%= @person.age %>, <%= @person.occupation %>
+        <br>
+        <%= @person.location %>
+      </p>
+  
+      <p>
+        <%= @person.story %>
+      </p>
+  
+      <p>
+        <div class="bold">Why did your family come to the United States?</div>
+        <%= @person.migration_reason %>
+      </p>
+  
+      <p>
+        <div class="bold">What would the U.S. be missing out on if you or your people were banned?</div>
+        <%= @person.value_prop %>
+      </p>
+    </div>
+  </div>
+  <div class="form hidden">
+    <%= form_for :person, url: person_path(@person), method: :patch do |f| %>
+      <p>
+        <%= f.label :photo, 'Photo' %><br>
+        <%= image_tag(@person.photo_url, class: 'half') if @person.photo? %>
+        <%= f.file_field :photo %>
+        <%= f.hidden_field :photo_cache %>
+      </p>
+      <p>
+        <%= f.label :name, 'Full Name' %><br>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :trajectory, 'Physical Trajectory' %><br>
+        <%= f.text_field :trajectory, :placeholder => 'eg. Origin Country - Intermediary Country - Destination Country' %>
+      </p>
+
+      <p>
+        <%= f.label :age %><br>
+        <%= f.text_field :age %>
+      </p>
+
+      <p>
+        <%= f.label :occupation %><br>
+        <%= f.text_field :occupation %>
+      </p>
+
+      <p>
+        <%= f.label :location %><br>
+        <%= f.text_field :location, :placeholder => 'City, State' %>
+      </p>
+
+      <p>
+        <%= f.label :migration_reason, 'Why did your family come to the United States?' %><br>
+        <%= f.text_area :migration_reason %>
+      </p>
+
+      <p>
+        <%= f.label :value_prop, 'What would the U.S. be missing out on if you or your people were banned?' %><br>
+        <%= f.text_area :value_prop %>
+      </p>
+
+      <p>
+        <%= f.label :story %><br>
+        <%= f.text_area :story %>
+      </p>
+
+      <p>
+        <%= f.submit 'Save' %> <button id="cancel-edit-person">Cancel</button>
+      </p>
+    <% end %>
+  </div>
+</div>

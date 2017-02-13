@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  trajectory: MyString
+  age: 1
+  occupation: MyString
+  migration_reason: MyText
+  value_prop: MyText
+  story: MyText
+  location: MyString
+  weight: 1.5
+  group_id: 1
+  published: false
+
+two:
+  name: MyString
+  trajectory: MyString
+  age: 1
+  occupation: MyString
+  migration_reason: MyText
+  value_prop: MyText
+  story: MyText
+  location: MyString
+  weight: 1.5
+  group_id: 1
+  published: false

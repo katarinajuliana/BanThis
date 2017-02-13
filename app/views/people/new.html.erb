@@ -1,0 +1,79 @@
+<div class="content">
+  <p>
+    Stories, in their way of reminding us of each other's humanity, are often our strongest form of resistance.
+  </p>
+  
+  <p>
+    You do not need to be a refugee or from one of the seven countries banned in order to participate. You do not even have to be a refugee or an immigrant yourself. You can be the descendant of an immigrant or a refugee.
+  </p>
+  
+  <p>
+    The reason why we put together #BanThis is simple: most of us are not from here. Our hope is to move past the overplayed narratives of "terrorist" or "refugee" and all the images those words evoke and...just show us.
+  </p>
+  
+  <p>
+    So yes, we want you if you're first-generation or from one of the seven countries banned. But we also want you if you're mixed, if you only know your story of immigration from oral histories, if you have never traveled back to the "homeland". You are part of this. That's our point.
+  </p>
+  
+  <% if flash.now[:notice] %>
+    <p>
+      <%= flash.now[:notice] %>
+    </p>
+  <% else %>
+    <p>
+      If you would like to resist alongside us, please submit a black and white picture of yourself and answer the following questions:
+    </p>
+
+    <%= form_for :person, url: people_path do |f| %>
+      <p>
+        <%= f.label :photo, 'Photo' %><br>
+        <%= image_tag(@person.photo_url) if @person.photo? %>
+        <%= f.file_field :photo %>
+        <%= f.hidden_field :photo_cache %>
+      </p>
+      <p>
+        <%= f.label :name, 'Full Name' %><br>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :trajectory, 'Physical Trajectory' %><br>
+        <%= f.text_field :trajectory, :placeholder => 'Origin Country - Intermediary Country - Destination Country' %>
+      </p>
+
+      <p>
+        <%= f.label :age %><br>
+        <%= f.text_field :age %>
+      </p>
+
+      <p>
+        <%= f.label :occupation %><br>
+        <%= f.text_field :occupation %>
+      </p>
+
+      <p>
+        <%= f.label :location %><br>
+        <%= f.text_field :location, :placeholder => 'City, State' %>
+      </p>
+
+      <p>
+        <%= f.label :migration_reason, 'Why did your family come to the United States?' %><br>
+        <%= f.text_area :migration_reason, rows: 4 %>
+      </p>
+
+      <p>
+        <%= f.label :value_prop, 'What would the U.S. be missing out on if you or your people were banned?' %><br>
+        <%= f.text_area :value_prop, rows: 4 %>
+      </p>
+
+      <p>
+        <%= f.label :story %><br>
+        <%= f.text_area :story, rows: 4 %>
+      </p>
+
+      <p>
+        <%= f.submit 'Submit' %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
