@@ -32,6 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rails_12factor', group: :production
 gem 'carrierwave', '~> 1.0'
 gem 'mail_form', '~> 1.5.0.rc'
 
