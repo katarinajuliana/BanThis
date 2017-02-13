@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  http_basic_authenticate_with name: "banthisthecampaign", password: "sameenmaria", only: [:edit, :update, :publish, :destroy]
+  http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"], only: [:edit, :update, :publish, :destroy]
   
   def index
     @people = Person.published.order(:weight)
@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
  
     if @person.update(person_params)
-      redirect_to @person
+      redirect_to admin_path
     else
       render 'edit'
     end

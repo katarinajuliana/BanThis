@@ -1,5 +1,6 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
+ruby "2.2.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -32,9 +33,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'figaro'
 gem 'rails_12factor', group: :production
 gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 gem 'mail_form', '~> 1.5.0.rc'
+gem 'sendgrid-ruby'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

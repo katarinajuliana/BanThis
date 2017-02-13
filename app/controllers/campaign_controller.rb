@@ -1,5 +1,5 @@
 class CampaignController < ApplicationController
-    http_basic_authenticate_with name: "banthisthecampaign", password: "sameenmaria", only: [:admin_dash]
+    http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"], only: [:admin_dash]
     
   def admin_dash
     @pending = Person.pending
