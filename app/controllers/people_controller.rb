@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   http_basic_authenticate_with name: "banthisthecampaign", password: "sameenmaria", only: [:edit, :update, :publish, :destroy]
   
   def index
-    @people = Person.published
+    @people = Person.published.order(:weight)
   end
   
   def show
@@ -23,11 +23,10 @@ class PeopleController < ApplicationController
  
     if @person.save
       flash.now[:notice] = "Thank you for your submission!"
-      redirect_to new_person_path
     else
       flash.now[:error] = "Sorry, there was a problem submitting your info. Please email your submission to banthisthecampaign@gmail.com"
-      render 'new'
     end
+    render 'new'
   end
   
   def update

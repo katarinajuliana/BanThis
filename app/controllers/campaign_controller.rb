@@ -1,4 +1,11 @@
 class CampaignController < ApplicationController
+    http_basic_authenticate_with name: "banthisthecampaign", password: "sameenmaria", only: [:admin_dash]
+    
+  def admin_dash
+    @pending = Person.pending
+    @published = Person.published.order(:weight)
+  end
+  
   def about
   end
   

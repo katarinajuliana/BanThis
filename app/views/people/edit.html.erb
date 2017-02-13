@@ -12,6 +12,8 @@
         <br>
         <%= @person.location %>
       </p>
+      
+      <%= image_tag(@person.photo_url, class: 'half') if @person.photo? %>
   
       <p>
         <%= @person.story %>

@@ -1,0 +1,27 @@
+<div class="content gallery">
+  <% if @pending.present? %>
+    <h3>Pending:</h3>
+  <% end %>
+  <% @pending.each do |person| %>
+    <%= link_to edit_person_path(person) do %>
+      <img src="<%= person.photo_url %>">
+      <div class="overlay">
+        <div><%= person.name%></div>
+        <div><%= person.trajectory %></div>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <% if @pending.present? %>
+    <h3>Published:</h3>
+  <% end %>
+  <% @published.each do |person| %>
+    <%= link_to edit_person_path(person) do %>
+      <img src="<%= person.photo_url %>">
+      <div class="overlay">
+        <div><%= person.name%></div>
+        <div><%= person.trajectory %></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
