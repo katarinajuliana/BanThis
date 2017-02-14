@@ -17,6 +17,6 @@ module ApplicationHelper
   
   def show_splash_page
     current_page?('/') && 
-      (request.referrer.blank? || URI(request.referrer).host != request.domain)
+      (request.referrer.blank? || /banthis/.match(URI(request.referrer).host).nil?)
   end
 end
