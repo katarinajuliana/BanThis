@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BanThis</title>
+  <title>#BanThis</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="canonical" href="http://www.banthisthecampaign.org">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Lora:400,700" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  
+  
+  <meta name="title" content="#BanThis | A Photo Campaign">
+  <meta property="og:title" content="#BanThis | A Photo Campaign">
+  <meta name="description" content="#BanThis is a personal response to a personal issue. #BanThis is a dare. A call to action. A claim of what is ours.">
+  <meta property="og:description" content="#BanThis is a personal response to a personal issue. #BanThis is a dare. A call to action. A claim of what is ours.">
+  <meta property="og:url" content="http://www.banthisthecampaign.org">
+  <meta name="keywords" content="Resistance, Immigration, Refugee, Ban, Immigration Ban, Muslim Ban, Trump, BanThis">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="#BanThis">
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= 'splash-page' if show_splash_page %>">
