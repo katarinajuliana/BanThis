@@ -40,6 +40,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'fog-aws'
 gem 'mail_form', '~> 1.5.0.rc'
 gem 'sendgrid-ruby'
+gem 'newrelic_rpm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
