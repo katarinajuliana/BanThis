@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"], only: [:edit, :update, :publish, :destroy]
   
   def index
-    @people = Person.published.order(:weight)
+    @people = Person.published.order(:weight, :id)
   end
   
   def show
@@ -54,6 +54,6 @@ class PeopleController < ApplicationController
   
   private
   def person_params
-    params.require(:person).permit(:photo, :name, :trajectory, :age, :occupation, :migration_reason, :value_prop, :story, :location, :weight, :group_id, :published)
+    params.require(:person).permit(:photo, :name, :trajectory, :age, :occupation, :migration_reason, :value_prop, :story, :location, :weight, :group_id, :published, :email)
   end
 end

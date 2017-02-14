@@ -8,8 +8,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= current_page?('/') && request.referrer.blank? ? 'splash-page' : '' %>">
-
+<body class="<%= 'splash-page' if show_splash_page %>">
 <div class="logo">
   <a href="/"></a>
 </div>
@@ -21,13 +20,16 @@
   <%= nav_link('Submit Your Story', new_person_path) %>
   <%= nav_link('Contact Us', contact_path) %>
 </ol>
-<select class="navigation">
-  <%= nav_option('Project', root_path) %>
-  <%= nav_option('About Us', about_path) %>
-  <%= nav_option('The Team', team_path) %>
-  <%= nav_option('Submit Your Story', new_person_path) %>
-  <%= nav_option('Contact Us', contact_path) %>
-</select>
+<div class="caret-container">
+  <select class="navigation">
+    <%= nav_option('Project', root_path) %>
+    <%= nav_option('About Us', about_path) %>
+    <%= nav_option('The Team', team_path) %>
+    <%= nav_option('Submit Your Story', new_person_path) %>
+    <%= nav_option('Contact Us', contact_path) %>
+  </select>
+  <div class="caret"></div>
+</div>
 
 <%= yield %>
 

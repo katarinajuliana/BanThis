@@ -14,4 +14,9 @@ module ApplicationHelper
       link_text
     end
   end
+  
+  def show_splash_page
+    current_page?('/') && 
+      (request.referrer.blank? || URI(request.referrer).host != request.domain)
+  end
 end

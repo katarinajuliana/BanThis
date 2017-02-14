@@ -20,4 +20,8 @@ $(document).on('turbolinks:load', function(e) {
     e.preventDefault();
     $('.splash-page').removeClass('splash-page').off('click');
   });
+  
+  $('select.navigation').on('change', function(e) {
+    window.location = $(e.target).val();
+  });
 });

@@ -2,7 +2,7 @@
   <h2><%= @person.name %> // <%= @person.trajectory %></h2>
   <div class="buttons">
     <button id="edit-person">Edit</button> 
-    <% if !@person.published %>
+    <% unless @person.published %>
       <%= button_to "Publish", person_publish_path(@person), method: :put %>
     <% end %>
     <%= button_to "Delete", { action: "destroy", id: @person.id }, method: :delete %>
@@ -11,22 +11,24 @@
         <%= @person.age %>, <%= @person.occupation %>
         <br>
         <%= @person.location %>
+        <br>
+        <%= @person.email %>
       </p>
       
       <%= image_tag(@person.photo_url, class: 'half') if @person.photo? %>
   
       <p>
-        <%= @person.story %>
+        <span class="pre"><%= @person.story %></span>
       </p>
   
       <p>
-        <div class="bold">Why did your family come to the United States?</div>
-        <%= @person.migration_reason %>
+        <span class="bold">Why did your family come to the United States?</span>
+        <span class="pre"><%= @person.migration_reason %></span>
       </p>
   
       <p>
-        <div class="bold">What would the U.S. be missing out on if you or your people were banned?</div>
-        <%= @person.value_prop %>
+        <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
+        <span class="pre"><%= @person.value_prop %></span>
       </p>
     </div>
   </div>
@@ -38,9 +40,15 @@
         <%= f.file_field :photo %>
         <%= f.hidden_field :photo_cache %>
       </p>
+      
       <p>
         <%= f.label :name, 'Full Name' %><br>
         <%= f.text_field :name %>
+      </p>
+      
+      <p>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
       </p>
 
       <p>
@@ -65,17 +73,17 @@
 
       <p>
         <%= f.label :migration_reason, 'Why did your family come to the United States?' %><br>
-        <%= f.text_area :migration_reason %>
+        <%= f.text_area :migration_reason, rows: 6 %>
       </p>
 
       <p>
         <%= f.label :value_prop, 'What would the U.S. be missing out on if you or your people were banned?' %><br>
-        <%= f.text_area :value_prop %>
+        <%= f.text_area :value_prop, rows: 6 %>
       </p>
 
       <p>
-        <%= f.label :story %><br>
-        <%= f.text_area :story %>
+        <%= f.label :story, 'Anything else you want to add?' %><br>
+        <%= f.text_area :story, rows: 6 %>
       </p>
 
       <p>

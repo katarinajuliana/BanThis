@@ -31,9 +31,15 @@
         <%= f.file_field :photo %>
         <%= f.hidden_field :photo_cache %>
       </p>
+      
       <p>
         <%= f.label :name, 'Full Name' %><br>
         <%= f.text_field :name %>
+      </p>
+      
+      <p>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
       </p>
 
       <p>
@@ -58,17 +64,17 @@
 
       <p>
         <%= f.label :migration_reason, 'Why did your family come to the United States?' %><br>
-        <%= f.text_area :migration_reason, rows: 4 %>
+        <%= f.text_area :migration_reason, rows: 6 %>
       </p>
 
       <p>
         <%= f.label :value_prop, 'What would the U.S. be missing out on if you or your people were banned?' %><br>
-        <%= f.text_area :value_prop, rows: 4 %>
+        <%= f.text_area :value_prop, rows: 6 %>
       </p>
 
       <p>
-        <%= f.label :story %><br>
-        <%= f.text_area :story, rows: 4 %>
+        <%= f.label :story, 'Anything else you want to add?' %><br>
+        <%= f.text_area :story, rows: 6 %>
       </p>
 
       <p>
