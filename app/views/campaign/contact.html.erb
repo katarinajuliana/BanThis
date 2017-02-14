@@ -8,6 +8,12 @@
       <%= flash.now[:notice] %>
     </p>
   <% else %>
+    <% if flash.now[:error] %>
+      <p>
+        <%= flash.now[:error] %>
+      </p>
+    <% end %>
+    
     <%= form_tag("/contact", method: "post") do %>
       <p>
         <%= label_tag :email %><br>
@@ -25,12 +31,6 @@
       </p>
       
       <%= submit_tag("Send") %>
-      
-      <% if flash.now[:error] %>
-        <p>
-          <%= flash.now[:error] %>
-        </p>
-      <% end %>
     <% end %>
   <% end %>
 </div>

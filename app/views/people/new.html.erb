@@ -29,7 +29,6 @@
         <%= f.label :photo, 'Photo' %><br>
         <%= image_tag(@person.photo.full.url) if @person.photo? %>
         <%= f.file_field :photo %>
-        <%= f.hidden_field :photo_cache %>
       </p>
       
       <p>
