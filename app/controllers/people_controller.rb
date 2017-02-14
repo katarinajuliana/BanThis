@@ -10,7 +10,6 @@ class PeopleController < ApplicationController
   end
   
   def new
-    @person = Person.new
   end
   
   def edit
@@ -54,6 +53,6 @@ class PeopleController < ApplicationController
   
   private
   def person_params
-    params.require(:person).permit(:photo, :name, :trajectory, :age, :occupation, :migration_reason, :value_prop, :story, :location, :weight, :group_id, :published, :email)
+    params.require(:person).permit(:photo, :name, :trajectory, :age, :occupation, :migration_reason, :value_prop, :story, :location, :weight, :published, :email)
   end
 end

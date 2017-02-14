@@ -7,28 +7,42 @@
     <% end %>
   </div>
   
-  <div class="details">
-    <h2 class="name"><%= @person.name %></h2>
-    <h2 class="trajectory"><%= @person.trajectory %></h2>
+  <h2 class="name"><%= @person.name %></h2>
+  <h2 class="trajectory"><%= @person.trajectory %></h2>
+
+  <p class="bold details">
+    <%= @person.age %>, <%= @person.occupation %>
+    <br>
+    <%= @person.location %>
+  </p>
+
+  <p>
+    <span class="pre"><%= @person.story %></span>
+  </p>
+
+  <p>
+    <span class="bold">Why did your family come to the United States?</span>
+    <span class="pre"><%= @person.migration_reason %></span>
+  </p>
+
+  <p>
+    <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
+    <span class="pre"><%= @person.value_prop %></span>
+  </p>
   
-    <p class="bold">
-      <%= @person.age %>, <%= @person.occupation %>
-      <br>
-      <%= @person.location %>
-    </p>
-  
-    <p>
-      <span class="pre"><%= @person.story %></span>
-    </p>
-  
-    <p>
-      <span class="bold">Why did your family come to the United States?</span>
-      <span class="pre"><%= @person.migration_reason %></span>
-    </p>
-  
-    <p>
-      <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
-      <span class="pre"><%= @person.value_prop %></span>
-    </p>
-  </div>
+  <% if @person.family && @person.family.people.length > 1 %>
+    <div class="family gallery">
+      <% @person.family.people.each do |member| %>
+        <% unless member == @person %>
+          <%= link_to person_path(member) do %>
+            <%= image_tag(member.photo.thumb.url) %>
+            <div class="overlay">
+              <div><%= member.name%></div>
+              <div><%= member.trajectory %></div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

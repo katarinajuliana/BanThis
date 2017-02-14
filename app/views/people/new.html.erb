@@ -24,10 +24,9 @@
       If you would like to resist alongside us, please submit a black and white picture of yourself and answer the following questions:
     </p>
 
-    <%= form_for :person, url: people_path do |f| %>
+    <%= form_for Person.new, url: people_path do |f| %>
       <p>
         <%= f.label :photo, 'Photo' %><br>
-        <%= image_tag(@person.photo.full.url) if @person.photo? %>
         <%= f.file_field :photo %>
       </p>
       
