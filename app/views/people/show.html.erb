@@ -32,6 +32,7 @@
   
   <% if @person.family && @person.family.people.length > 1 %>
     <div class="family gallery">
+      <div class="bold center">Family Ties</div>
       <% @person.family.people.each do |member| %>
         <% unless member == @person %>
           <%= link_to person_path(member) do %>
