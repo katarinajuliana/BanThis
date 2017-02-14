@@ -4,7 +4,7 @@
   <% end %>
   <% @pending.each do |person| %>
     <%= link_to edit_person_path(person) do %>
-      <img src="<%= person.photo_url %>">
+      <img src="<%= person.photo.thumb.url %>">
       <div class="overlay">
         <div><%= person.name%></div>
         <div><%= person.trajectory %></div>
@@ -17,7 +17,7 @@
   <% end %>
   <% @published.each do |person| %>
     <%= link_to edit_person_path(person) do %>
-      <img src="<%= person.photo_url %>">
+      <img src="<%= person.photo.thumb.url %>">
       <div class="overlay">
         <div><%= person.name%></div>
         <div><%= person.trajectory %></div>
