@@ -1,6 +1,10 @@
 <div class="content person">
   <div class="photo">
     <img src="<%= @person.photo.full.url %>">
+    
+    <% if @person.photographer %>
+      <div class="photo-credit">Photo: <%= @person.photographer %></div>
+    <% end %>
   </div>
   
   <div class="details">

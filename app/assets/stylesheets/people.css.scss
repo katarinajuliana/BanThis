@@ -64,10 +64,20 @@
 
 .person
 {
+  .photo
+  {
+    margin-bottom: 24px;
+  }
+  
   .photo img
   {
     width: 100%;
-    margin-bottom: 24px;
+  }
+  
+  .photo-credit
+  {
+    font-size: 11px;
+    line-height: 2em;
   }
   
   .name

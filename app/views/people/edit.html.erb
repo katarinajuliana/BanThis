@@ -8,11 +8,17 @@
     <%= button_to "Delete", { action: "destroy", id: @person.id }, method: :delete %>
     <div>
       <p class="bold">
-        <%= @person.age %>, <%= @person.occupation %>
-        <br>
-        <%= @person.location %>
-        <br>
-        <%= @person.email %>
+        <%= @person.age %><% if @person.occupation %>, <%= @person.occupation %><% end %>
+        
+        <% if @person.location %>
+          <br>
+          <%= @person.location %>
+        <% end %>
+        
+        <% if @person.email %>
+          <br>
+          <%= @person.email %>
+        <% end %>
       </p>
       
       <%= image_tag(@person.photo.full.url, class: 'half') if @person.photo? %>
