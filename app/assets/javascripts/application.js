@@ -16,9 +16,9 @@
 //= require_tree .
   
 $(document).on('turbolinks:load', function(e) {
-  $('.splash-page').on('click', function(e) {
+  $('.splash-page').one('click touchend', function(e) {
     e.preventDefault();
-    $('.splash-page').removeClass('splash-page').off('click');
+    $('.splash-page').removeClass('splash-page').off('click touchend');
   });
   
   $('select.navigation').on('change', function(e) {

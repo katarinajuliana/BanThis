@@ -80,22 +80,6 @@
     color: #666;
     margin-top: 0;
   }
-  
-  @media only screen and (min-width: 800px)
-  {
-    .photo,
-    .details
-    {
-      width: 49%;
-      display: inline-block;
-      vertical-align: top;
-    }
-    
-    .photo
-    {
-      padding-right: 20px;
-    }
-  }
 }
 
 .buttons form,
