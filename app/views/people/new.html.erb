@@ -12,7 +12,7 @@
   </p>
   
   <p>
-    So yes, we want you if you're first-generation or from one of the seven countries banned. But we also want you if you're mixed, if you only know your story of immigration from oral histories, if you have never traveled back to the "homeland". You are part of this. That's our point.
+    So yes, we want you if you're first-generation or from one of the seven countries banned. But we also want you if you're mixed, if you only know your story of immigration from oral histories, if you have never traveled back to the "homeland." You are part of this. That's our point.
   </p>
   
   <% if flash.now[:notice] %>
@@ -23,6 +23,11 @@
     <p>
       If you would like to resist alongside us, please submit a black and white picture of yourself and answer the following questions:
     </p>
+    <% if flash.now[:error] %>
+      <p>
+        <%= flash.now[:error] %>
+      </p>
+    <% else %>
 
     <%= form_for Person.new, url: people_path do |f| %>
       <p>

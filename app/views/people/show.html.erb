@@ -1,6 +1,6 @@
 <div class="content person">
   <div class="photo">
-    <img src="<%= @person.photo.full.url %>">
+    <div class="photo-image" style="background-image: url(<%= @person.photo.full.url %>)"></div>
     
     <% if @person.photographer %>
       <div class="photo-credit">Photo: <%= @person.photographer %></div>
@@ -36,7 +36,7 @@
       <% @person.family.people.each do |member| %>
         <% unless member == @person %>
           <%= link_to person_path(member) do %>
-            <%= image_tag(member.photo.thumb.url) %>
+          <div class="photo-image" style="background-image: url(<%= member.photo.thumb.url %>)"></div>
             <div class="overlay">
               <div><%= member.name%></div>
               <div><%= member.trajectory %></div>

@@ -1,4 +1,10 @@
 <div class="content gallery">
+  <h2>Admin Dashboard</h2>
+  
+  <p>
+    <%= button_to "Add", new_admin_path, method: :get %>
+  </p>
+    
   <% if @pending.present? %>
     <h3>Pending:</h3>
   <% end %>

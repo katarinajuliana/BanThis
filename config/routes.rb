@@ -54,11 +54,12 @@ BanThis::Application.routes.draw do
   #     resources :products
   #   end
   
-  get 'admin', to: 'campaign#admin_dash'
   get 'about', to: 'campaign#about'
   get 'team', to: 'campaign#team'
   get 'contact', to: 'campaign#contact'
   post 'contact', to: 'campaign#email'
+  
+  resources :admin
   
   resources :people do 
     put :publish

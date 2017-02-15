@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.photo-image
+{
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 66%;
+}
+
 .gallery
 {
   text-align: center;
@@ -27,7 +34,7 @@
   
   a:hover
   {
-    img
+    .photo-image
     {
       opacity: 0.3;
     }
@@ -38,7 +45,7 @@
     }
   }
   
-  img
+  .photo-image
   {
     width: 100%;
     opacity: 1;
@@ -55,7 +62,7 @@
     margin-top: -1.7em;
   }
   
-  img,
+  .photo-image,
   .overlay
   {
     transition: opacity, 0.2s;
@@ -67,11 +74,6 @@
   .photo
   {
     margin-bottom: 24px;
-  }
-  
-  .photo img
-  {
-    width: 100%;
   }
   
   .photo-credit

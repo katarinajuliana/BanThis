@@ -22,6 +22,9 @@
       </p>
       
       <%= image_tag(@person.photo.full.url, class: 'half') if @person.photo? %>
+      <% if @person.photographer %>
+        <div class="photo-credit">Photo: <%= @person.photographer %></div>
+      <% end %>
   
       <p>
         <span class="pre"><%= @person.story %></span>
@@ -44,6 +47,11 @@
         <%= f.label :photo, 'Photo' %><br>
         <%= image_tag(@person.photo.full.url, class: 'half') if @person.photo? %>
         <%= f.file_field :photo %>
+      </p>
+      
+      <p>
+        <%= f.label :photographer %><br>
+        <%= f.text_field :photographer %>
       </p>
       
       <p>

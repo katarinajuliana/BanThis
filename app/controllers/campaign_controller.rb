@@ -1,11 +1,5 @@
 class CampaignController < ApplicationController
-    include SendGrid
-    http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"], only: [:admin_dash]
-    
-  def admin_dash
-    @pending = Person.pending.order(:id)
-    @published = Person.published.order(:weight, :id)
-  end
+  include SendGrid
   
   def about
   end
