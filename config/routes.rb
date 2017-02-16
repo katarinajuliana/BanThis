@@ -59,7 +59,7 @@ BanThis::Application.routes.draw do
   get 'contact', to: 'campaign#contact'
   post 'contact', to: 'campaign#email'
   
-  resources :admin
+  resources :admin, only: [:index, :new, :create]
   
   resources :people do 
     put :publish

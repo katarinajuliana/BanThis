@@ -11,7 +11,7 @@
       <%= flash.now[:error] %>
     </p>
   <% end %>
-  <%= form_for Person.new, url: admin_path do |f| %>
+  <%= form_for Person.new, url: admin_index_path do |f| %>
     <p>
       <%= f.label :photo, 'Photo' %><br>
       <%= f.file_field :photo %>

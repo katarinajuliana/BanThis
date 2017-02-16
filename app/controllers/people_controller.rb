@@ -6,7 +6,11 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person = Person.find(params[:id])
+    people   = Person.published.order(:weight, :id)
+    @person  = Person.find(params[:id])
+    person_i = people.index(@person)
+    @prev    = people[person_i - 1] if person_i > 0
+    @next    = people[person_i + 1] if person_i < people.length
   end
   
   def new
@@ -32,7 +36,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
  
     if @person.update(person_params)
-      redirect_to admin_path
+      redirect_to admin_index_path
     else
       render 'edit'
     end

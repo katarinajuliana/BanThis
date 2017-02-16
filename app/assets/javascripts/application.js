@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ../../../vendor/assets/javascripts/jquery.ba-throttle-debounce.min.js
 //= require_tree .
-  
+
 $(document).on('turbolinks:load', function(e) {
   $('.splash-page').one('click touchend', function(e) {
     e.preventDefault();
@@ -24,4 +25,8 @@ $(document).on('turbolinks:load', function(e) {
   $('select.navigation').on('change', function(e) {
     window.location = $(e.target).val();
   });
+});
+
+$(function(e) {
+  console.log("I'm happy to volunteer my time for worthy causes like this one! Reach out to me at katblag@gmail.com with your organization's website needs. -Katarina ");
 });

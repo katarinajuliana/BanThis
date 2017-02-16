@@ -47,3 +47,14 @@
     </div>
   <% end %>
 </div>
+<% if @prev %>
+  <%= link_to @prev, class: 'page-through-link prev hide' do %>
+    <div class="caret"></div>
+  <% end %>
+<% end %>
+<% if @next %>
+  <%= link_to @next, class: 'page-through-link next hide' do %>
+    <div class="caret"></div>
+  <% end %>
+<% end %>
+

@@ -27,7 +27,7 @@
       <p>
         <%= flash.now[:error] %>
       </p>
-    <% else %>
+    <% end %>
 
     <%= form_for Person.new, url: people_path do |f| %>
       <p>
