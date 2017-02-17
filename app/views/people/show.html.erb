@@ -1,3 +1,7 @@
+<% content_for :meta_image do %>
+  <%= @person.photo.thumb.url %>
+<% end %>
+
 <div class="content person">
   <div class="photo">
     <div class="photo-image" style="background-image: url(<%= @person.photo.full.url %>)"></div>
@@ -16,19 +20,25 @@
     <%= @person.location %>
   </p>
 
-  <p>
-    <span class="pre"><%= @person.story %></span>
-  </p>
+  <% if @person.story %>
+    <p>
+      <span class="pre"><%= @person.story %></span>
+    </p>
+  <% end %>
 
-  <p>
-    <span class="bold">Why did your family come to the United States?</span>
-    <span class="pre"><%= @person.migration_reason %></span>
-  </p>
+  <% if @person.migration_reason %>
+    <p>
+      <span class="bold">Why did your family come to the United States?</span>
+      <span class="pre"><%= @person.migration_reason %></span>
+    </p>
+  <% end %>
 
-  <p>
-    <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
-    <span class="pre"><%= @person.value_prop %></span>
-  </p>
+  <% if @person.value_prop %>
+    <p>
+      <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
+      <span class="pre"><%= @person.value_prop %></span>
+    </p>
+  <% end %>
   
   <% if @person.family && @person.family.people.length > 1 %>
     <div class="family gallery">

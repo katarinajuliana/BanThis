@@ -15,20 +15,31 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
     ga('create', 'UA-92128843-1', 'auto');
-    ga('send', 'pageview');
   </script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="title" content="#BanThis | A Photo Campaign">
   <meta property="og:title" content="#BanThis | A Photo Campaign">
+  <meta property="twitter:title" content="#BanThis | A Photo Campaign">
+  
   <meta name="description" content="#BanThis is a personal response to a personal issue. #BanThis is a dare. A call to action. A claim of what is ours.">
   <meta property="og:description" content="#BanThis is a personal response to a personal issue. #BanThis is a dare. A call to action. A claim of what is ours.">
-  <meta property="og:url" content="http://www.banthisthecampaign.org">
-  <meta property="og:image" content="<%= asset_url 'social.jpg' %>">
+  <meta property="twitter:description" content="#BanThis is a personal response to a personal issue. #BanThis is a dare. A call to action. A claim of what is ours.">
+  
+  <% if content_for :meta_image %>
+    <meta property="og:image" content="<%= content_for :meta_image %>">
+    <meta property="twitter:image" content="<%= content_for :meta_image %>">
+  <% else %>
+    <meta property="og:image" content="<%= asset_url 'social.jpg' %>">
+    <meta property="twitter:image" content="<%= asset_url 'social.jpg' %>">
+  <% end %>
+  
+  <meta property="og:url" content="http://www.banthisthecampaign.org">  
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="keywords" content="Resistance, Immigration, Refugee, Ban, Immigration Ban, Muslim Ban, Trump, BanThis">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="#BanThis">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= 'splash-page' if show_splash_page %>">

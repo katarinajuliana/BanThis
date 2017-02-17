@@ -45,14 +45,14 @@ class PeopleController < ApplicationController
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
-    redirect_to root_path
+    redirect_to admin_index_path
   end
   
   def publish
     @person = Person.find(params[:person_id])
     @person.published = true
     @person.save
-    redirect_to @person
+    redirect_to admin_index_path
   end
   
   private

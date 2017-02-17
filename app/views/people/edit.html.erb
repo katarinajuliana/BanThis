@@ -1,48 +1,61 @@
-<div class="content">
-  <h2><%= @person.name %> // <%= @person.trajectory %></h2>
+<div class="content person">
   <div class="buttons">
-    <button id="edit-person">Edit</button> 
-    <% unless @person.published %>
-      <%= button_to "Publish", person_publish_path(@person), method: :put %>
-    <% end %>
-    <%= button_to "Delete", { action: "destroy", id: @person.id }, method: :delete %>
-    <div>
-      <p class="bold">
-        <%= @person.age %><% if @person.occupation %>, <%= @person.occupation %><% end %>
-        
-        <% if @person.location %>
-          <br>
-          <%= @person.location %>
+      <div class="photo">
+        <div class="photo-image" style="background-image: url(<%= @person.photo.full.url %>)"></div>
+    
+        <% if @person.photographer %>
+          <div class="photo-credit">Photo: <%= @person.photographer %></div>
         <% end %>
-        
-        <% if @person.email %>
-          <br>
-          <%= @person.email %>
-        <% end %>
-      </p>
+      </div>
+  
+      <h2 class="name"><%= @person.name %></h2>
+      <h2 class="trajectory"><%= @person.trajectory %></h2>
       
-      <%= image_tag(@person.photo.full.url, class: 'half') if @person.photo? %>
-      <% if @person.photographer %>
-        <div class="photo-credit">Photo: <%= @person.photographer %></div>
+      <button id="edit-person">Edit</button> 
+      <% unless @person.published %>
+        <%= button_to "Publish", person_publish_path(@person), method: :put %>
       <% end %>
-  
-      <p>
-        <span class="pre"><%= @person.story %></span>
+      <%= button_to "Delete", { action: "destroy", id: @person.id }, method: :delete %>
+
+      <p class="bold details">
+        <%= @person.age %>, <%= @person.occupation %>
+        <br>
+        <%= @person.location %>
       </p>
-  
-      <p>
-        <span class="bold">Why did your family come to the United States?</span>
-        <span class="pre"><%= @person.migration_reason %></span>
-      </p>
-  
-      <p>
-        <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
-        <span class="pre"><%= @person.value_prop %></span>
-      </p>
-    </div>
+
+      <% if @person.story %>
+        <p>
+          <span class="pre"><%= @person.story %></span>
+        </p>
+      <% end %>
+
+      <% if @person.migration_reason %>
+        <p>
+          <span class="bold">Why did your family come to the United States?</span>
+          <span class="pre"><%= @person.migration_reason %></span>
+        </p>
+      <% end %>
+
+      <% if @person.value_prop %>
+        <p>
+          <span class="bold">What would the U.S. be missing out on if you or your people were banned?</span>
+          <span class="pre"><%= @person.value_prop %></span>
+        </p>
+      <% end %>
+
   </div>
   <div class="form hidden">
     <%= form_for :person, url: person_path(@person), method: :patch do |f| %>
+      <p>
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+      </p>
+    
+      <p>
+        <%= f.label :name, 'Full Name' %><br>
+        <%= f.text_field :name %>
+      </p>
+    
       <p>
         <%= f.label :photo, 'Photo' %><br>
         <%= image_tag(@person.photo.full.url, class: 'half') if @person.photo? %>
@@ -52,16 +65,6 @@
       <p>
         <%= f.label :photographer %><br>
         <%= f.text_field :photographer %>
-      </p>
-      
-      <p>
-        <%= f.label :name, 'Full Name' %><br>
-        <%= f.text_field :name %>
-      </p>
-      
-      <p>
-        <%= f.label :email %><br>
-        <%= f.email_field :email %>
       </p>
 
       <p>

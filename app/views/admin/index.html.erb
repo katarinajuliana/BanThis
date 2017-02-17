@@ -6,20 +6,20 @@
   </p>
     
   <% if @pending.present? %>
-    <h3>Pending:</h3>
-  <% end %>
-  <% @pending.each do |person| %>
-    <%= link_to edit_person_path(person) do %>
-      <img src="<%= person.photo.thumb.url %>">
-      <div class="overlay">
-        <div><%= person.name%></div>
-        <div><%= person.trajectory %></div>
-      </div>
+    <h3 class="left">Pending:</h3>
+    <% @pending.each do |person| %>
+      <%= link_to edit_person_path(person) do %>
+        <img src="<%= person.photo.thumb.url %>">
+        <div class="overlay">
+          <div><%= person.name%></div>
+          <div><%= person.trajectory %></div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
   
   <% if @pending.present? %>
-    <h3>Published:</h3>
+    <h3 class="left">Published:</h3>
   <% end %>
   <% @published.each do |person| %>
     <%= link_to edit_person_path(person) do %>
