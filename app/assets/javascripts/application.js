@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ../../../vendor/assets/javascripts/jquery.ba-throttle-debounce.min.js
+//= require ../../../vendor/assets/javascripts/jquery-ui.min.js
 //= require_tree .
-//= stub admin
 
 $(document).on('turbolinks:load', function(e) {
   ga('send', 'pageview');
