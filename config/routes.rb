@@ -59,7 +59,9 @@ BanThis::Application.routes.draw do
   get 'contact', to: 'campaign#contact'
   post 'contact', to: 'campaign#email'
   
-  resources :admin, only: [:index, :new, :create]
+  resources :admin, only: [:index, :new, :create] do
+    post :position, on: :collection, constraints: { format: 'json' }
+  end
   
   resources :people do 
     put :publish

@@ -21,6 +21,17 @@ class AdminController < ApplicationController
       render :new
     end
     
+    def position
+      params['positions'].each_with_index do |person_id, i|
+        person = Person.find(person_id)
+        unless person.weight == i
+          person.weight = i
+          person.save
+        end
+      end
+      render json: {status: 200}
+    end
+    
     private
     def person_params
       params.require(:person).permit(:photo, :name, :trajectory, :age, :occupation, :migration_reason, :value_prop, :story, :location, :weight, :published, :photographer)

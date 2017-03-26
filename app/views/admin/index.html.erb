@@ -21,13 +21,21 @@
   <% if @pending.present? %>
     <h3 class="left">Published:</h3>
   <% end %>
-  <% @published.each do |person| %>
-    <%= link_to edit_person_path(person) do %>
-      <div class="photo-image" style="background-image: url(<%= person.photo.thumb.url %>)"></div>
-      <div class="overlay">
-        <div><%= person.name%></div>
-        <div><%= person.trajectory %></div>
-      </div>
+  
+  <div class="sortable-list">
+    <% @published.each do |person| %>
+      <%= link_to edit_person_path(person), id: person.id do %>
+        <div class="photo-image" style="background-image: url(<%= person.photo.thumb.url %>)"></div>
+        <div class="overlay">
+          <div><%= person.name%></div>
+          <div><%= person.trajectory %></div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "jquery-ui.min.js" %>
+  <%= javascript_include_tag "admin" %>
+<% end %>
